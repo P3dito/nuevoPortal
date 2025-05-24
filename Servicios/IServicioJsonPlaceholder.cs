@@ -1,4 +1,4 @@
-using practica3.Modelos;
+using practica3.Models;
 
 namespace practica3.Servicios;
 

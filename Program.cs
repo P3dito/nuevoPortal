@@ -1,8 +1,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using practica3.Data;
+using practica3.Servicios;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddHttpClient<IServicioJsonPlaceholder, ServicioJsonPlaceholder>(client =>{client.BaseAddress = new Uri("https://jsonplaceholder.typicode.com/");});
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
