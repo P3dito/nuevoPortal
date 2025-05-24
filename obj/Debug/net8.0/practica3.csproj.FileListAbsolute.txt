@@ -142,3 +142,7 @@ C:\Users\palom\Downloads\Proyecto C#\practica3\obj\Debug\net8.0\refint\practica3
 C:\Users\palom\Downloads\Proyecto C#\practica3\obj\Debug\net8.0\practica3.pdb
 C:\Users\palom\Downloads\Proyecto C#\practica3\obj\Debug\net8.0\practica3.genruntimeconfig.cache
 C:\Users\palom\Downloads\Proyecto C#\practica3\obj\Debug\net8.0\ref\practica3.dll
+C:\Users\palom\Downloads\Proyecto C#\practica3\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\palom\Downloads\Proyecto C#\practica3\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\palom\Downloads\Proyecto C#\practica3\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\palom\Downloads\Proyecto C#\practica3\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll

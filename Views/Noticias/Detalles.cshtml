@@ -1,4 +1,4 @@
-@model practica3.Models.PublicacionVistaModelo
+    @model practica3.Models.PublicacionVistaModelo
 @{
     ViewData["Title"] = "Detalles de la Noticia";
 }
@@ -29,17 +29,21 @@
         }
     </div>
 
-    <div class="mt-6 flex gap-4">
-        <form asp-controller="Feedback" asp-action="Enviar" method="post">
-            <input type="hidden" name="publicacionId" value="@Model.Id" />
-            <input type="hidden" name="sentimiento" value="like" />
-            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">👍 Me gustó</button>
-        </form>
+    <form asp-action="EnviarFeedback" method="post">
+    @Html.AntiForgeryToken()
+        <input type="hidden" name="publicacionId" value="@Model.Id" />
+        <button type="submit" name="sentimiento" value="like" class="btn btn-success">👍 Me gustó</button>
+        <button type="submit" name="sentimiento" value="dislike" class="btn btn-danger">👎 No me gustó</button>
+    </form>
 
-        <form asp-controller="Feedback" asp-action="Enviar" method="post">
-            <input type="hidden" name="publicacionId" value="@Model.Id" />
-            <input type="hidden" name="sentimiento" value="dislike" />
-            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded">👎 No me gustó</button>
-        </form>
-    </div>
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+
+    @if (TempData["Mensaje"] != null)
+    {
+        <div class="alert alert-success">@TempData["Mensaje"]</div>
+    }
+
 </div>
