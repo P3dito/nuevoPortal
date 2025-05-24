@@ -9,7 +9,20 @@ builder.Services.AddHttpClient<IServicioJsonPlaceholder, ServicioJsonPlaceholder
 
 builder.Services.AddHttpClient<ServicioFeedback>(client =>{client.BaseAddress = new Uri("https://localhost:7234/"); });
 
-builder.WebHost.UseUrls("https://localhost:7234", "http://localhost:5204");
+var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+if (env == "Development")
+{
+    // En desarrollo, usa URLs fijos con HTTPS y HTTP
+    builder.WebHost.UseUrls("https://localhost:7234", "http://localhost:5204");
+}
+else
+{
+    // En producción (Render) solo HTTP en el puerto asignado por la variable de entorno PORT
+    var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+    builder.WebHost.UseUrls($"http://*:{port}");
+}
+
 
 
 builder.Services.AddHttpContextAccessor();
