@@ -12,6 +12,10 @@ public class FeedbackModelo
     public int Id { get; set; }
 
     [Required]
+    [MaxLength(100)]
+    public string Usuario { get; set; } = "";
+
+    [Required]
     public int PublicacionId { get; set; }
 
     [Required]
