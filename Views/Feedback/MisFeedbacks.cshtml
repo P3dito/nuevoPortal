@@ -1,0 +1,26 @@
+@model IEnumerable<practica3.Models.FeedbackModelo>
+@{
+    ViewData["Title"] = "Mis Feedbacks";
+}
+
+<h2>Mis Feedbacks</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Publicación</th>
+            <th>Sentimiento</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var feedback in Model)
+        {
+            <tr>
+                <td>@feedback.PublicacionId</td>
+                <td>@feedback.Sentimiento</td>
+                <td>@feedback.Fecha.ToLocalTime().ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>
