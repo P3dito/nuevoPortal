@@ -1,0 +1,17 @@
+@model List<practica3.Models.PublicacionVistaModelo>
+@{
+    ViewData["Title"] = "Noticias";
+}
+
+<h1 class="text-2xl font-bold mb-4">Últimas Noticias</h1>
+
+@foreach (var noticia in Model)
+{
+    <div class="mb-4 p-4 border rounded shadow-sm">
+        <h2 class="text-xl font-semibold">@noticia.Titulo</h2>
+        <p class="text-sm text-gray-600">Autor: @noticia.Autor.Nombre</p>
+        <a asp-action="Detalles" asp-route-id="@noticia.Id" class="text-blue-500 hover:underline">
+            Ver más
+        </a>
+    </div>
+}
